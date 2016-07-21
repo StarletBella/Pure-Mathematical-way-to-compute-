@@ -1,0 +1,79 @@
+// The program to calculate the appoximation of π. 
+#include <iostream> 
+#include <fstream> 
+#include <stdlib.h> 
+#include <math.h> 
+#include <iomanip> 
+using namespace std; 
+int main(void) 
+{ 
+int n; // The maximum steps. 
+double a; // The perimeter of inscribed polygon. 
+double b; // The perimeter of circumscibed polygon. 
+double c; // length of the new inscribed polygon's side in every step. 
+double i; // 1/2 length of the inscribed polygon's side. 
+double d; // length of the circumscribed polygon's side. 
+double x; // The distance from the center of the inscribed polygon to the middle of his side. 
+double e; // The distance from the middle of the inscribed polygon's side to the circle. 
+double f; // For calculation. 
+double g; // For calculation. 
+double h; // The distance from the center of the new inscribed polygon to the middle of its side in every step. 
+double k; // For manifesting the total numbers of the sides of inscribed polygons. 
+char zzz; 
+const char filepath[] = "C:\\CoutputFiles\\Project moved to cry.txt"; 
+const char ErrorMessage[] = "Can't open file "; 
+fstream OutStream(filepath, ios::out); 
+if (OutStream.fail()) 
+{ 
+cerr << ErrorMessage << filepath; 
+cin >> zzz; 
+exit(-1); 
+}; 
+OutStream << setprecision(20); 
+c = 0.25; 
+d = sqrt(3) / 6; 
+a = 2 * 6 * c; 
+b = 2 * 6 * d; 
+cout << "6" << "," << a << "," << setprecision(20) << b << "\n"; 
+OutStream << "6" << "," << a << "," << setprecision(20) << b << "\n"; 
+x = sqrt(0.25 - pow(0.25, 2)); 
+e = ((0.5) - x); 
+f = (pow(0.25, 2) + pow(e, 2)); 
+c = sqrt(f); 
+i = c / 2; 
+g = ((0.25) - pow(i, 2)); 
+h = sqrt(g); 
+d = (0.5)*i / h; 
+a = 2 * 6 * c; 
+b = 2 * 2 * 6 * d; 
+cout << "12" << "," << a << "," << setprecision(20) << b << "\n"; 
+OutStream << "12" << "," << a << "," << setprecision(20) << b << "\n"; 
+x = sqrt(0.25 - pow(i, 2)); 
+e = ((0.5) - x); 
+f = (pow(i, 2) + pow(e, 2)); 
+c = sqrt(f); 
+i = c / 2; 
+g = ((0.25) - pow(i, 2)); 
+h = sqrt(g); 
+d = (0.5)*i / h; 
+a = pow(2, 2) * 6 * c; 
+b = pow(2, 3) * 6 * d; 
+cout << "24" << "," << a << "," << setprecision(20) << b << "\n"; 
+OutStream << "24" << "," << a << "," << setprecision(20) << b << "\n"; 
+for (n = 4; n < 30; n++) 
+{ 
+k = (6 * pow (2,(n-1))); 
+x = sqrt(0.25 - pow(i, 2)); 
+e = ((0.5) - x); 
+f = (pow(i, 2) + pow(e, 2)); 
+c = sqrt(f); 
+i = c / 2; 
+g = ((0.25) - pow(i, 2)); 
+h = sqrt(g); 
+d = (0.5)*i / h; 
+a = pow(2, (n-1)) * 6 * c; 
+b = pow(2, n) * 6 * d; 
+cout << k << "," << a << "," << setprecision(20) << b << "\n"; 
+OutStream << k << "," << a << "," << setprecision(20) << b << "\n"; 
+} 
+}
